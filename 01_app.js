@@ -129,8 +129,8 @@ app.get('/vider', (req, res) => {
 // Une nouvelle route pour traiter la requête AJAX
 
 app.post('/ajax_modifier', (req,res) => {
-	console.log('la route = /ajax_modifier')
    req.body._id = ObjectID(req.body._id)
+   console.log("req.body._id = " + req.body._id)
 
    db.collection('adresse').save(req.body, (err, result) => {
    if (err) return console.log(err)
