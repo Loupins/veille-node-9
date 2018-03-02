@@ -141,3 +141,11 @@ app.post('/ajax_modifier', (req,res) => {
 })
 
 
+app.post('/ajax_detruire', (req,res) => {
+  db.collection('adresse').findOneAndDelete({"_id": ObjectID(req.body._id)}, (err, resultat) => {
+
+  if (err) return console.log(err)
+    res.redirect('/adresse')  // redirige vers la route qui affiche la collection
+  })
+})
+
